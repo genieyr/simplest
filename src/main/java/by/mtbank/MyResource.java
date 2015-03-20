@@ -25,4 +25,18 @@ public class MyResource {
 
         return "You've got it!  " + sc.isSecure() + " AuSchema " + sc.getAuthenticationScheme();
     }
+
+    @Path("xml")
+    @GET
+    @Produces(MediaType.APPLICATION_XML)
+    public MyXML getXml() {
+        return new MyXML(1,"one1");
+    }
+
+    @Path("json")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public MyXML getJson() {
+        return new MyXML(2,"two2");
+    }
 }
