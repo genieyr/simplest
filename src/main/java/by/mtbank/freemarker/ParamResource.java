@@ -14,6 +14,7 @@ public class ParamResource {
 //    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces(MediaType.TEXT_PLAIN)
     public String showParam(@PathParam("id") int i) {
-        return "ID is " + i;
+        i++;
+        return "ID plus one is " + i;
     }
 }

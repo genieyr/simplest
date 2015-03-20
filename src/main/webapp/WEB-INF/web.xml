@@ -13,12 +13,20 @@
             <param-name>jersey.config.server.provider.packages</param-name>
             <param-value>by.mtbank</param-value>
         </init-param>
+        <init-param>
+            <param-name>jersey.config.server.mvc.templateBasePath.freemarker</param-name>
+            <param-value>templates</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.disableMoxyJson</param-name>
+            <param-value>true</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
             <servlet-name>Jersey Web Application</servlet-name>
-            <url-pattern>/*</url-pattern>
+            <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
 
     <!--<servlet>-->
@@ -39,5 +47,10 @@
     		<!--<transport-guarantee>CONFIDENTIAL</transport-guarantee>-->
     	<!--</user-data-constraint>-->
     <!--</security-constraint>-->
+
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
 
 </web-app>
