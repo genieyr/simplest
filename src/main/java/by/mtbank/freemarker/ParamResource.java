@@ -12,7 +12,7 @@ public class ParamResource {
 
     @GET
 //    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
     public String showParam(@PathParam("id") int i) {
         return "ID is " + i;
     }
