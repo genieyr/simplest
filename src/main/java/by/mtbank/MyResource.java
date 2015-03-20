@@ -3,7 +3,9 @@ package by.mtbank;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.SecurityContext;
 
 /**
  * Root resource (exposed at "myresource" path)
@@ -19,7 +21,8 @@ public class MyResource {
      */
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String getIt() {
-        return "You've got it!";
+    public String getIt(@Context SecurityContext sc) {
+
+        return "You've got it!  " + sc.isSecure() + " AuSchema " + sc.getAuthenticationScheme();
     }
 }
