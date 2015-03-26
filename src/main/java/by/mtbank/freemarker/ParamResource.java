@@ -13,11 +13,10 @@ import java.util.List;
 import java.util.Map;
 
 
-
+@Path("presource/{id}")
 public class ParamResource {
 
     @GET
-    @Path("presource/{id}")
 //    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Produces(MediaType.TEXT_PLAIN)
     public String showParam(@PathParam("id") int i) {

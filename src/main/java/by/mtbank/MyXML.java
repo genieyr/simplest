@@ -14,4 +14,12 @@ public class MyXML {
         this.id = id;
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "MyXML{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }
