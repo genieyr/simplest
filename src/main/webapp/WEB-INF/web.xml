@@ -15,7 +15,11 @@
         </init-param>
         <init-param>
             <param-name>jersey.config.server.mvc.templateBasePath.freemarker</param-name>
-            <param-value>templates</param-value>
+            <param-value>/WEB-INF/templates</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jersey.config.server.provider.classnames</param-name>
+            <param-value>org.glassfish.jersey.server.mvc.freemarker.FreemarkerMvcFeature</param-value>
         </init-param>
         <init-param>
             <param-name>jersey.config.disableMoxyJson</param-name>
@@ -28,6 +32,10 @@
             <servlet-name>Jersey Web Application</servlet-name>
             <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
+
+    <!--When enable freemarker in jersey, the default template loading is using ClassTemplateLoader.-->
+    <!--But if you specify the jersey.config.server.mvc.templateBasePath.freemarker starting with "/". -->
+    <!--FreemarkerMvcFeature will try to find template from webapp root first. (./WEB-INF)﻿-->
 
     <!--<servlet>-->
         <!--<servlet-name>javax.ws.rs.core.Application</servlet-name>-->
@@ -46,6 +54,21 @@
     	<!--<user-data-constraint>-->
     		<!--<transport-guarantee>CONFIDENTIAL</transport-guarantee>-->
     	<!--</user-data-constraint>-->
+    <!--</security-constraint>-->
+
+    <!--
+    Prevent the visiting of MVC Views from outside the servlet container.
+    RequestDispatcher.forward/include should and will still work. Removing
+    this may open security holes!
+-->
+    <!--<security-constraint>-->
+        <!--<web-resource-collection>-->
+            <!--<web-resource-name>FreeMarker MVC Views</web-resource-name>-->
+            <!--<url-pattern>*.ftl</url-pattern>-->
+        <!--</web-resource-collection>-->
+        <!--<auth-constraint>-->
+            <!--&lt;!&ndash; Nobody is allowed to visit these &ndash;&gt;-->
+        <!--</auth-constraint>-->
     <!--</security-constraint>-->
 
     <welcome-file-list>
