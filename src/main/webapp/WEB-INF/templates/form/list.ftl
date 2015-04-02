@@ -6,11 +6,13 @@
     <title>Form list</title>
 </head>
 
+<#--<#assign air = model/>-->
 <body>
-  <form method="POST" action="free/form">
-    <p>Your id:<br>
+${model}
+  <form method="POST" action="/rest/free/form">
+    <p>Your id:</p>
      <input type="number" name="id" min="1" max="11"">
-    <p>Your name:<br>
+    <p>Your name:</p>
     <input type="text" name="name" size=60>
     <p><input type="submit" value="Submit">
   </form>
