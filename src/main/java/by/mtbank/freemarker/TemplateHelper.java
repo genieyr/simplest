@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by yatsevich on 3/26/2015.
+ * @author Ruslan Yatsevich
  */
 @Path("free")
 public class TemplateHelper {

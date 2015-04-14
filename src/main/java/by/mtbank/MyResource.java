@@ -1,8 +1,6 @@
 package by.mtbank;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
@@ -36,8 +34,8 @@ public class MyResource {
     @Path("json")
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public MyXML getJson() {
-        return new MyXML(2,"two2");
+    public MyXML getJson( @DefaultValue("5") @QueryParam("step") int step) {
+        return new MyXML(step,"five5");
     }
 
 }
